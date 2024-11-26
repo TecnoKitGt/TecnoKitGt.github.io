@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoKit - Tienda en Línea</title>
+    <style>
+        /* General Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background: url('BgTK.PNG') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .header .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .social-icons a img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .header .social-icons a img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Categories Section */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .category {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .category img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 10px;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .menu-content h2 {
+            margin: 0 0 15px 0;
+        }
+
+        .menu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-content ul li {
+            padding: 10px;
+            cursor: pointer;
+            background: #f0f0f0;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .menu-content ul li:hover {
+            background: #ddd;
+        }
+
+        .menu-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-content button:hover {
+            background: #555;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            margin: 20px;
+            text-align: center;
+            background-color: #60c077;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        ¡Tecno Kit tu mejor opción!
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="Tecnokit.png" alt="Logo">
+            <h1 style="font-size: 18px; margin: 0;">TecnoKit</h1>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/tecnokitgt/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com/@tecnokit0fgt?is_from_webapp=1&sender_device=pc" target="_blank" title="TikTok">
+                <img src="TIKTOKLOGO.JPG" alt="TikTok">
+            </a>
+            <a href="https://wa.me/50258978555" target="_blank" title="WhatsApp">
+                <img src="whatsapp-icon.png.png" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+        <div class="category" onclick="showMenu('celulares')">
+            <img src="Celulares.png" alt="Celulares">
+            <p>Celulares</p>
+        </div>
+        <div class="category" onclick="showMenu('computadoras')">
+            <img src="Computadoras.jpg" alt="Computadoras">
+            <p>Computadoras</p>
+        </div>
+        <div class="category" onclick="showMenu('accesorios')">
+            <img src="ACCESORIOS.png" alt="Accesorios">
+            <p>Accesorios</p>
+        </div>
+        <div class="category" onclick="showMenu('videojuegos')">
+            <img src="Videojuegos.jpg" alt="Videojuegos">
+            <p>Videojuegos</p>
+        </div>
+        <div class="category" onclick="showMenu('licencias')">
+            <img src="LicenciasOffice.png" alt="Licencias de Office">
+            <p>Licencias de Office</p>
+        </div>
+        <div class="category" onclick="showMenu('soporte')">
+            <img src="SoporteTecnico.png" alt="Soporte Técnico">
+            <p>Soporte Técnico</p>
+        </div>
+    </div>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <h2 id="menuTitle"></h2>
+            <ul id="menuList"></ul>
+            <button onclick="closeMenu()">Cerrar Menú</button>
+        </div>
+    </div>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <h2>¡Ofertas increíbles por tiempo limitado!</h2>
+        <p>Aprovecha descuentos exclusivos en todas las categorías.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 TecnoKit - Todos los derechos reservados.
+    </footer>
+
+    <script>
+        // Configuración de categorías y mensajes
+        // Configuración de categorías y mensajes
+const categories = {
+    celulares: {
+        items: ["iPhone", "Samsung", "Huawei", "Otros"],
+        messages: {
+            "iPhone": "Hola, necesito más información acerca de iPhone.",
+            "Samsung": "Hola, necesito más información acerca de Samsung.",
+            "Huawei": "Hola, necesito más información acerca de Huawei.",
+            "Otros": "Hola, necesito más información acerca de otros modelos de celulares."
+        }
+    },
+    computadoras: {
+        items: ["Laptops", "PCs de escritorio", "Tablets"],
+        messages: {
+            "Laptops": "Hola, necesito más información acerca de laptops.",
+            "PCs de escritorio": "Hola, necesito más información acerca de PCs de escritorio.",
+            "Tablets": "Hola, necesito más información acerca de tablets."
+        }
+    },
+    accesorios: {
+        items: ["Audífonos", "Teclados", "Mouse", "Fundas"],
+        messages: {
+            "Audífonos": "Hola, necesito más información acerca de audífonos.",
+            "Teclados": "Hola, necesito más información acerca de teclados.",
+            "Mouse": "Hola, necesito más información acerca de mouse.",
+            "Fundas": "Hola, necesito más información acerca de fundas y accesorios."
+        }
+    },
+    videojuegos: {
+        items: ["Consolas", "Juegos", "Controles"],
+        messages: {
+            "Consolas": "Hola, necesito más información acerca de consolas.",
+            "Juegos": "Hola, necesito más información acerca de juegos de video.",
+            "Controles": "Hola, necesito más información acerca de controles."
+        }
+    },
+    licencias: {
+        items: ["Office 365", "Windows 10", "Antivirus", "Otros"],
+        messages: {
+            "Office 365": "Hola, necesito más información acerca de Office 365.",
+            "Windows 10": "Hola, necesito más información acerca de Windows 10.",
+            "Antivirus": "Hola, necesito más información acerca de antivirus.",
+            "Otros": "Hola, necesito más información acerca de otras licencias."
+        }
+    },
+    soporte: {
+        items: ["Reparación", "Mantenimiento", "Instalación", "Otros"],
+        messages: {
+            "Reparación": "Hola, necesito más información acerca de reparación de equipos.",
+            "Mantenimiento": "Hola, necesito más información acerca de mantenimiento técnico.",
+            "Instalación": "Hola, necesito más información acerca de instalaciones de software.",
+            "Otros": "Hola, necesito más información acerca de otros servicios de soporte técnico."
+        }
+    }
+};
+
+// Función para mostrar el menú
+function showMenu(category) {
+    const menu = categories[category];
+    if (!menu) return;
+
+    const menuTitle = document.getElementById("menuTitle");
+    const menuList = document.getElementById("menuList");
+
+    menuTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    menuList.innerHTML = ""; // Limpiar elementos anteriores
+
+    // Crear opciones del menú
+    menu.items.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        listItem.onclick = () => {
+            const message = menu.messages[item] || "Hola, necesito más información.";
+            window.open(`https://wa.me/50258978555?text=${encodeURIComponent(message)}`, "_blank");
+        };
+        menuList.appendChild(listItem);
+    });
+
+    document.getElementById("menuOverlay").style.display = "flex";
+}
+
+
+        // Función para cerrar el menú
+        function closeMenu() {
+            document.getElementById("menuOverlay").style.display = "none";
+        }
+    </script>
+</body>
+</html>

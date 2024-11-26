@@ -1,0 +1,40 @@
+{
+    "categorias": [
+      {
+        "nombre": "Celulares",
+        "imagen": "Celulares.png",
+        "descripcion": "Los mejores celulares del mercado"
+      },
+      {
+        "nombre": "Computadoras",
+        "imagen": "Computadoras.jpg",
+        "descripcion": "Computadoras para todos los gustos"
+      },
+      {
+        "nombre": "Accesorios para Celulares",
+        "imagen": "AccesoriosCelulares.png",
+        "descripcion": "Accesorios para mejorar tu experiencia"
+      },
+      {
+        "nombre": "Accesorios para Computadoras",
+        "imagen": "AccesoriosComputadoras.png",
+        "descripcion": "Accesorios para todos los dispositivos"
+      },
+      {
+        "nombre": "Videojuegos",
+        "imagen": "Videojuegos.jpg",
+        "descripcion": "Juegos para todas las plataformas"
+      },
+      {
+        "nombre": "Licencias de Office",
+        "imagen": "LicenciasOffice.png",
+        "descripcion": "Compra y descarga las licencias oficiales de Office"
+      },
+      {
+        "nombre": "Soporte Técnico",
+        "imagen": "SoporteTecnico.png",
+        "descripcion": "Servicio de mantenimiento y reparación"
+      }
+    ]
+  }
+  
